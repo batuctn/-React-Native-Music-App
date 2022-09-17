@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
+import { Provider, useSelector } from 'react-redux';
 
-export default function App() {
+import AuthNavigaiton from './src/navigaiton/AuthNavigation';
+import SpotifyNavigaiton from './src/navigaiton/SpotifyNavigation';
+import { store } from './src/screens/store';
+
+const Contain = () => {
+  const user = useSelector((state) => state.user.user);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>{user ? <SpotifyNavigaiton /> : <AuthNavigaiton />}</NavigationContainer>
+  );
+};
+
+function App() {
+  return (
+    <Provider store={store}>
+      <Contain />
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
