@@ -6,21 +6,13 @@ import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
 import { auth } from '../../utils/firabase';
 
-const SignUp = ({ navigation }) => {
+  const SignUp = ({ navigation }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [fullname, setFullname] = useState(null);
   const handleSignUp = () => {
     createUserWithEmailAndPassword(auth, email, password).then((response) => {
-      if (response.user) {
-        response.user
-          .updateProfile({
-            displayName: { fullname },
-          })
-          .then((s) => {
-            navigation.navigate('SignIn');
-          });
-      }
+      navigation.navigate('SignIn');
     });
   };
   return (
