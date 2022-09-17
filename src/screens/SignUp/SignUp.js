@@ -12,18 +12,9 @@ const SignUp = ({ navigation }) => {
   const [fullname, setFullname] = useState(null);
   const handleSignUp = () => {
     createUserWithEmailAndPassword(auth, email, password).then((response) => {
-      if (response.user) {
-        response.user
-          .updateProfile({
-            displayName: { fullname },
-          })
-          .then((s) => {
-            navigation.navigate('SignIn');
-          });
-      }
+      navigation.navigate('SignIn');
     });
   };
-
   return (
     <SafeAreaView
       style={{
