@@ -1,8 +1,5 @@
 ![](https://img.shields.io/badge/-ReactNative-blue)![](https://img.shields.io/badge/-JavaScript-yellow)
 
-There isn’t anything to compare.
-main and master are entirely different commit histories
-hatası aldığım için merge yapamadım 2 farklı branc var master'de proje kodları.
 
 <div style="display: flex; align="center">
 
